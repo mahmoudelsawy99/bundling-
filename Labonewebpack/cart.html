@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="container">
+
+        <section id="cart"> 
+
+
+          
+         
+          
+        </section>
+    
+      </div>
+    
+
+
+
+
+
+      <footer id="site-footer">
+        <div class="container clearfix">
+    
+          <div class="left">
+            <h2 class="subtotal">Subtotal: <span>163.96</span>€</h2>
+            <h3 class="tax">Taxes (5%): <span>8.2</span>€</h3>
+            <h3 class="shipping">Shipping: <span>5.00</span>€</h3>
+          </div>
+    
+          <div class="right">
+            <h1 class="total">Total: <span>177.16</span>€</h1>
+            <a class="btn">Checkout</a>
+          </div>
+    
+        </div>
+      </footer>
+    
+</body>
+<script>
+
+let arr = JSON.parse(window.localStorage.getItem('product'));
+// console.log(data2);    
+var div = document.getElementById('cart')
+
+        for(var i=0;i<arr.length;i++)
+        {
+          div.innerHTML+=`
+          <article class="product">
+            <header>
+              <a class="remove">
+                <img src=${arr[i].thumbnail} alt="">
+    
+                <h3 onclick="remove(${i})">Remove product</h3>
+              </a>
+
+           
+            </header>
+            
+            
+            <div class="content">
+              
+              <h1>${arr[i].title}</h1>
+              <h3> ${arr[i].brand}</h3>
+    
+    
+              <div title="You have selected this product to be shipped in the color blue." style="top: 0" class="color blue"></div>
+              <div style="top: 43px" class="type small">Large</div>
+            </div>
+    
+            <footer class="content">
+              
+              <span class="qt-minus">-</span>
+              <span class="qt">3</span>
+              <span class="qt-plus">+</span>
+    
+              <h2 class="full-price">
+                ${arr[i].price}
+              
+             
+    
+             
+            </footer>
+          </article>
+    `  
+
+
+        }
+  function remove (index){
+
+    var arr2= JSON.parse(localStorage.getItem('product'));
+     arr2.splice(index,1);
+    localStorage.setItem("product",JSON.stringify(arr2)); 
+      
+    }
+</script>
+</html>

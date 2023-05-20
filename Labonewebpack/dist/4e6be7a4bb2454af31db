@@ -1,0 +1,79 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./index.js":
+/*!******************!*\
+  !*** ./index.js ***!
+  \******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./style.css\");\n\r\nvar products=new XMLHttpRequest(); // \r\nvar arr=[]; // global\r\nvar div=document.getElementsByClassName('products')[0];\r\nconsole.log(div);\r\nproducts.open(\"GET\",\"https://dummyjson.com/products\") // open connecation  0\r\nproducts.send(); // send  req //1  \r\n// 2 arrive \r\n// 3 process\r\n// 4 response\r\n\r\nproducts.onreadystatechange=function()// event fire every change of state \r\n{\r\n    //console.log(products.readyState);\r\n\r\n   if(products.readyState==4)\r\n   {\r\n       var data= JSON.parse(products.responseText).products // convert from type string to type object\r\n        console.log(data );\r\n        arr=data // assgin\r\n        for(var i=0;i<9;i++)\r\n        {\r\n            // var newdiv=document.createElement(\"div\");\r\n            // var img=document.createElement(\"img\");\r\n            // var title=document.createElement(\"h1\");\r\n            // var price=document.createElement(\"h2\");\r\n            // title.innerText=data[i].title;\r\n            // price.innerText=data[i].price;\r\n            // img.src=data[i].thumbnail\r\n            // newdiv.appendChild(img);\r\n            // newdiv.appendChild(title);\r\n            // newdiv.appendChild(price);\r\n            // document.body.appendChild(newdiv);\r\n            //\r\n            div.innerHTML+=`<div class=\"product\">\r\n            <div class=\"image\">\r\n                <img src=${data[i].thumbnail} alt=\"\">\r\n            </div>\r\n            <div class=\"namePrice\">\r\n                <h3>${data[i].brand}</h3>\r\n                <span>$ ${data[i].price}</span>\r\n            </div>\r\n            <p>${data[i].title}</p>\r\n            \r\n            <div class=\"bay\">\r\n                <button onclick=\"add(${i})\"> bay now </button>\r\n            </div>\r\n        </div>`\r\n\r\n\r\n        }\r\n\r\n\r\n   }\r\n}\r\n\r\nfunction add(index)\r\n{\r\n// alert(index);\r\nvar newdata= JSON.parse(localStorage.getItem('product'))||[];\r\n\r\nconsole.log(newdata);\r\nnewdata.push(arr[index]);\r\nconsole.log(newdata);\r\n\r\n// newdata.push(arr[index]);\r\n\r\n\r\nlocalStorage.setItem(\"product\",JSON.stringify(newdata)); //overwrite \r\n\r\n}\r\n\r\n\r\nfunction serach()\r\n{\r\n\r\n\r\n\r\n    var text=document.getElementById('s').value;\r\n    alert('')\r\n    div.innerHTML=\"\";\r\n    for(var i=0;i<arr.length;i++)\r\n    {\r\n        \r\n        if(arr[i].title.indexOf(text)>-1)\r\n        {\r\n            \r\n            div.innerHTML+=`<div class=\"product\">\r\n            <div class=\"image\">\r\n                <img src=${arr[i].thumbnail} alt=\"\">\r\n            </div>\r\n            <div class=\"namePrice\">\r\n                <h3>${arr[i].brand}</h3>\r\n                <span>$ ${arr[i].price}</span>\r\n            </div>\r\n            <p>${arr[i].title}</p>\r\n            \r\n            <div class=\"bay\">\r\n                <button> bay now </button>\r\n            </div>\r\n        </div>`\r\n        }\r\n    }\r\n\r\n\r\n\r\n}\r\n\r\n// var x=10; \r\n\r\n\r\n// function change()\r\n// {\r\n//     x=1000000;\r\n\r\n//     return x+2;\r\n// }\r\n// console.log(x) //10\r\n// change()\r\n// console.log(x) // 1000000\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://lab/./index.js?");
+
+/***/ }),
+
+/***/ "./style.css":
+/*!*******************!*\
+  !*** ./style.css ***!
+  \*******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://lab/./style.css?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./index.js");
+/******/ 	
+/******/ })()
+;
